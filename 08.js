@@ -154,10 +154,12 @@ const getTotalPriceByName = (input,name) => {
     let purchases = input.filter(purchase=>{
         return purchase.customer.name.toLowerCase() === name.toLowerCase();
     })
+
+    // TODO belum dikali item!
     // Sum the price of all item
     purchases.forEach(purchase => {
         purchase.items.forEach(item=>{
-            totalPrice+=item.price;
+            totalPrice+=(item.price*item.qty);
         })
     });
 
